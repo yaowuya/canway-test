@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row mb10">
+        <div class="col-md-12">
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <label>业务名称:</label>
+                    <input type="text" class="w180" ng-model="args.business" cw-selectstr2="business"/>
+                </div>
+                <div class="form-group pl10">
+                    <label>模板类型:</label>
+                    <select class="form-control w180"
+                            ng-options="i.name as i.name for i in type"
+                            ng-model="args.type"></select>
+                </div>
+                <div class="form-group pl10">
+                    <label>模板名称:</label>
+                    <input type="text" ng-model="args.name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>开始时间：</label>
+                    <input type="text" ng-model="args.whenStart" cw-datepicker class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label >结束时间：</label>
+                    <input type="text" ng-model="args.whenEnd" cw-datepicker class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <button ng-click="search()" class="btn btn-primary ml10">查询</button>
+                    <button class="btn btn-info" ng-click="add()">添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div cw-adaptbody="84" ng-grid="gridOption" style="overflow-y: hidden;overflow-x: hidden;">
+
+            </div>
+            <div class="ngFooterPanel" style="width: 100%; height: 35px;">
+                <div class="ngTotalSelectContainer  grid_footer">
+                    <div class="ngFooterTotalItems">
+                        <span class="ngLabel ng-binding">条目总数： {{ all_len }}</span>
+                    </div>
+                </div>
+                <div class="ngPagerContainer" style="float: right; margin-top: 10px;">
+                    <div style="float:left; margin-right: 10px;" class="ngRowCountPicker">
+                        <span style="float: left; margin-top: 3px;" class="ngLabel">每页显示数：</span>
+                        <select style="float: left;height: 27px !important; width: 100px"
+                                ng-model="pagingOptions.pageSize">
+                            <option ng-repeat="size in pagingOptions.pageSizes">{{ size }}</option>
+                        </select>
+                    </div>
+                    <div style="float:left; margin-right: 10px; line-height:25px;" class="ngPagerControl">
+                        <button class="ngPagerButton" ng-click="goToPage(0)" ng-disabled="pagingOptions.currentPage==1"
+                                title="回到首页"><span class="fa fa-lg fa-step-backward"></span></button>
+                        <button class="ngPagerButton" ng-click="goToPage(-1)" ng-disabled="pagingOptions.currentPage==1"
+                                title="上一页"><span class="fa fa-lg fa-caret-left"></span></button>
+                        <input class="ngPagerCurrent" min="1" max="{{ currentMaxPages }}" type="number"
+                               style="width:50px; height: 24px; margin-top: 1px; padding: 0 4px;"
+                               ng-model="pagingOptions.currentPage">
+                        <span class="ngGridMaxPagesNumber" ng-show="maxP > 0"> / {{ maxP }}</span>
+                        <button class="ngPagerButton" ng-click="goToPage(1)"
+                                ng-disabled="pagingOptions.currentPage==maxP"
+                                title="下一页"><span class="fa fa-lg fa-caret-right"></span></button>
+                        <button class="ngPagerButton" ng-click="goToPage(9)"
+                                ng-disabled="pagingOptions.currentPage==maxP"
+                                title="前往尾页"><span class="fa fa-lg fa-step-forward"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

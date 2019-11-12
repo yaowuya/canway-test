@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    接口调用
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label>业务名称:</label>
+                                <input type="text" class="w180" ng-model="args.business" cw-selectstr2="business"
+                                       ng-change="get_tree()"/>
+                            </div>
+                        </form>
+                    </div>
+                    <button class="btn btn-info" ng-click="fastRunScript()">快速执行脚本测试</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    树结构
+                </div>
+                <div class="panel-body tuo-pu">
+                    <ul id="businessTopo" ztree="zTreeOptions" ng-model="businessTopo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .tuo-pu {
+        position: absolute;
+        top: 50px;
+    }
+
+    #businessTopo {
+        position: absolute;
+        top: 15px;
+    }
+</style>

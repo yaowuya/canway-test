@@ -1,0 +1,60 @@
+<div>
+    <div dragable1 dialog-title="{{ title }}"></div>
+
+    <div class="dialog-body">
+        <form class="form-horizontal standard-form">
+            <div class="form-group">
+                <label class="col-sm-2">业务名称:</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="w-100"
+                           ng-model="args.business"
+                           cw-selectstr2="business"
+                           ng-change="get_set()"
+                    />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">集群:</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="w-100"
+                           ng-model="args.set"
+                           cw-selectstr2="set"
+                           ng-change="get_host()"
+                    />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">主机:</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="w-100"
+                           ng-model="args.host"
+                           cw-selectstr2="host"
+                    />
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="dialog-footer">
+        <button class="btn btn-default" ng-if="clickop">
+            正在保存，请稍后
+        </button>
+        <button class="btn btn-primary" ng-click="confirm()" ng-if="!clickop">
+            确认
+        </button>
+        <button style="margin-left: 20px;" class="btn btn-default" ng-click="cancel()" ng-if="!clickop">
+            取消
+        </button>
+    </div>
+</div>
+
+
+<style>
+
+</style>

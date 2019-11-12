@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <input id="uploadFile" class="hidden" onchange="angular.element(this).scope().upload_img()"
+                           name="uploadFile" type="file"/>
+                    <button class="btn btn-primary" ng-click="select_pic()">选择图片文件</button>
+                    <button class="btn btn-info" ng-click="show_pic()">展示图片</button>
+                    <button class="btn btn-danger" ng-click="down_img()">下载图片</button>
+                </div>
+                <div class="panel-body">
+                    <img ng-src="{{ logo_img }}" class="logo-img">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    上传下载文件
+                </div>
+                <div class="panel-body">
+                    <div class="row p10">
+                        <button class="btn btn-primary" ng-click="upload_field()">上传普通文件-文件夹</button>
+                        <button class="btn btn-primary" ng-click="down_load_field()">下载普通文件-文件夹</button>
+                        <input id="uploadInfo" multiple style="display: none"
+                               onchange="angular.element(this).scope().uploadItem()" name="uploadInfo[]" type="file"/>
+                    </div>
+
+                    <div class="row p10">
+                        <button class="btn btn-info" ng-click="upload()">导入excel</button>
+                        <button class="btn btn-info" ng-click="down_excel()">导出excel</button>
+
+                    </div>
+                    <div class="row p10">
+                        <input id="uploadCsvFile" style="display: none"
+                               onchange="angular.element(this).scope().uploadCsv()"
+                               name="uploadFile" type="file"/>
+                        <button class="btn btn-success" ng-click="up_csv()">导入csv</button>
+                        <button class="btn btn-success" ng-click="down_csv()">导出csv</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

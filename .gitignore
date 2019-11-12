@@ -1,0 +1,6 @@
+# pyc
+*.pyc
+
+# pycharm
+.idea/
+node_modules/

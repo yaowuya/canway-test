@@ -1,0 +1,175 @@
+<div style="width:98%;height:75%;margin:auto;text-align:center;margin-top: 100px">
+    <h4>欢迎使用嘉为蓝鲸开发框架</h4>
+    <div class="demo-button">
+        <button type="button" class="btn btn-primary">操作</button>
+        <button type="button" ng-click="modal_type('success')" class="btn btn-success">成功</button>
+        <button type="button" ng-click="modal_type('info')" class="btn btn-info">信息</button>
+        <button type="button" ng-click="modal_type('warning')" class="btn btn-warning">警告</button>
+        <button type="button" ng-click="modal_type('error')" class="btn btn-danger">失败</button>
+        <button type="button" class="btn btn-default">默认</button>
+        <!-- <button type="button" disabled style="cursor: not-allowed;"  class="btn btn-default">xx</button> -->
+    </div>
+    <div class="demo-button">
+        <button type="button" class="btn btn-primary btn-outline">操作</button>
+        <button type="button" class="btn btn-success btn-outline">成功</button>
+        <button type="button" class="btn btn-info btn-outline">信息</button>
+        <button type="button" class="btn btn-warning btn-outline">警告</button>
+        <button type="button" class="btn btn-danger btn-outline">失败</button>
+    </div>
+
+    <!--样例2-->
+    <div class="btn-group mb15">
+        <button type="button" class="btn btn-info">信息1</button>
+        <button type="button" class="btn btn-info">信息2</button>
+        <button type="button" class="btn btn-info">信息3</button>
+    </div>
+    <br>
+    <!--样例3-->
+    <div class="btn-group mb15">
+        <button type="button" class="btn btn-combo1">信息1</button>
+        <button type="button" class="btn btn-combo1">信息2</button>
+        <button type="button" class="btn btn-combo1">信息3</button>
+    </div>
+    <button ng-click="success_modal_n()" class="btn btn-primary">成功提示</button>
+    <button ng-click="success_modal_n1()" class="btn btn-primary">成功提示1</button>
+    <button ng-click="error_modal_n()" class="btn btn-danger">失败提示</button>
+    <button ng-click="error_modal_n1()" class="btn btn-danger">失败提示1</button>
+    <!-- <button ng-click="msg_modal_n()" class="btn btn-sm btn-primary">错误提示</button> -->
+    <button ng-click="confirm_modal()" class="btn btn-primary">编辑询问框</button>
+    <button ng-click="delete_modal()" class="btn btn-primary">删除询问框</button>
+
+    <div class="form-group">
+        <label style="float:left;margin: 5px 0 0 5px;">input：</label>
+        <input style="width: 150px;" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label style="float:left;margin: 10px 0 0 5px;">描述：</label>
+        <textarea class="form-control" style="width: 250px;height:60px!important;"></textarea>
+    </div>
+    <div class="form-group">
+        <label style="float:left;margin: 5px 0 0 5px;">select：</label>
+        <div class="col-sm-2">
+            <input type="text" style="width:150px" ng-model="app_id1" cw-selectstr2="appOption1"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label style="float:left;margin: 10px 0 0 5px;">radio：</label>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" disabled name="sex" ng-model="obj.sex" value="0">
+                    <span>男</span>
+                </label>
+                <label>
+                    <input type="radio" name="sex" ng-model="obj.sex" value="1">
+                    <span>女</span>
+                </label>
+                <label>
+                    <input disabled type="radio" name="sex" ng-model="obj.sex" value="2">
+                    <span>未知</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-2">
+            <div class="checkbox">
+                <label>
+                    <span class="checkbox-span " ng-class="{'checkbox-checked': is_checked}">
+                        <span class="checkbox-inner"></span>
+                        <input type="checkbox" ng-model="is_checked" class="checkbox-input" value="AAA">
+                    </span>
+                    <span class="checkbox-text">AAA</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label style="float:left;margin: 10px 0 0 5px;">多选：</label>
+        <div class="col-sm-2">
+            <input style="position: relative;width: 150px" type="text" placeholder="请选择" ng-model="app_id"
+                   cw-selectstr2="appOption"/>
+            <!-- span class="fa fa-angle-down" style="position: absolute;right: 23px;top: 11px"></span> -->
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+            请选择 <span class="fa fa-angle-down"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">选项1</a></li>
+            <li class="disabled"><a href="#">选项2</a></li>
+            <li><a href="#">选项3</a></li>
+        </ul>
+    </div>
+
+</div>
+<div class="row-home charts" style="overflow-y: auto;overflow-x: hidden;padding:5px">
+    <div class="col-md-6" style="padding-top:10px;">
+        <div style="height: 280px;overflow-y: auto;background-color: #fff;padding:15px 30px;">
+            <ul class="king-timeline-simple" style="">
+                <li class="info">
+                    <span class="timeline-simple-date">11111</span>
+                    <a class="active">查看详情</a>
+                </li>
+                <li class="info">
+                    <span class="timeline-simple-date">22222</span>
+                    <a class="active">查看详情</a>
+                </li>
+                <li class="info pending">
+                    <span class="timeline-simple-date">22222</span>
+                    <a class="active">查看详情</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- 表格 -->
+<div>
+    <div style="float:left;margin-left: 5px;">
+        <label style="float:left;margin-top: 5px;">开始时间：</label>
+        <input type="text" ng-model="filter.whenStart" cw-datepicker style="width:150px;float:left;"
+               class="form-control"/>
+    </div>
+    <div style="float:left;margin-left: 5px;">
+        <label style="float:left;margin-top: 5px;">结束时间：</label>
+        <input type="text" ng-model="filter.whenEnd" cw-datepicker style="width:150px;float:left;"
+               class="form-control"/>
+    </div>
+    <div style="float: left;margin-left: 5px;" class="cw-cover">
+        <div class="cw-cover-contain" ng-if="false"></div> <!-- 控制是否禁止输入 -->
+        <input cw-datetimepicker type="text" style="width: 220px;" id="date_start"
+               placeholder="选择日期..." ng-model="time_data">
+    </div>
+    <div style="float:left;margin-left:15px;">
+        <button class="btn btn-primary">查询</button>
+    </div>
+    <div style="float:right;margin-right: 15px">
+        <button ng-click="add()" class="btn btn-info">新增</button>
+    </div>
+</div>
+<div cw-adaptbody="95" ng-grid="gridOption"
+     style="width:100%;overflow-y: auto;overflow-x: hidden;padding: 0 5px"></div>
+
+<div class="code-body" style="width: 30%;height: 120px;margin: 25px 0 25px 0">
+    <div class="code-body-header">
+        <ul class="detail-code">
+            <li ng-repeat="m in codeTitle" ng-click="showCode(m)"
+                class="{{ codeIndex==$index?'code_active':''}}">{{ m.title }}</li>
+        </ul>
+    </div>
+    <div class="code-body-content">
+        <div ng-show="codeIndex==$index" ng-repeat="content in codeContent">
+            {{ content }}
+        </div>
+    </div>
+</div>
+</div>

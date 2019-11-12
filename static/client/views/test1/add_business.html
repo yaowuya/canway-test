@@ -1,0 +1,69 @@
+<div>
+    <div dragable1 dialog-title="{{ title }}"></div>
+
+    <div class="dialog-body">
+        <form class="form-horizontal standard-form" id="upload_file_form" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-sm-2">业务名称:</label>
+                <div class="col-sm-9">
+                    <select class="form-control"
+                            ng-options="i.bk_biz_name as i.bk_biz_name for i in business"
+                            ng-model="args.business"></select>
+                </div>
+                <div class="col-sm-1">
+                    <span class="text-danger mt5">*</span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">模板类型:</label>
+                <div class="col-sm-9">
+                    <select class="form-control"
+                            ng-options="i.name as i.name for i in type"
+                            ng-model="args.type"></select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">模板名称:</label>
+                <div class="col-sm-9">
+                    <input type="text" ng-model="args.name" class="form-control">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">文件上传：</label>
+                <div class="col-sm-9">
+                    <div class="demo" id="kendo_upload_demo3">
+                        <input name="files" class="file_input" type="file" required>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2"></label>
+                <div class="col-sm-9">
+                    <a href="javascript:0">模板样例</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="dialog-footer">
+        <button class="btn btn-default" ng-if="clickop">
+            正在上传，请稍后
+        </button>
+        <button class="btn btn-primary" ng-click="confirm()" ng-if="!clickop">
+            确认
+        </button>
+        <button style="margin-left: 20px;" class="btn btn-default" ng-click="cancel()" ng-if="!clickop">
+            取消
+        </button>
+    </div>
+</div>
+
+
+<style>
+
+</style>

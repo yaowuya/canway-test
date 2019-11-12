@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row mb10">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-1 text-right">请选择业务:</label>
+                    <div class="col-sm-11">
+                        <input type="text"
+                           class="w-100"
+                           ng-model="args.business"
+                           cw-selectstr2="business"
+                           ng-change="get_host()"/>
+                    </div>
+
+                </div>
+                <div class="form-group ">
+                    <label class="col-sm-1 text-right">请输入主机IP:</label>
+                    <div class="col-sm-11">
+                        <textarea ng-model="args.host" class="form-control w-100"
+                              style="height:60px!important;"></textarea>
+                    </div>
+
+                </div>
+                <button ng-click="search()" class="btn btn-primary pull-right">查询</button>
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div cw-adaptbody="84" ng-grid="gridOption" style="overflow-y: hidden;overflow-x: hidden;">
+            </div>
+            <div class="ngFooterPanel" style="width: 100%; height: 35px;">
+                <div class="ngTotalSelectContainer  grid_footer">
+                    <div class="ngFooterTotalItems">
+                        <span class="ngLabel ng-binding">条目总数： {{ all_len }}</span>
+                    </div>
+                </div>
+                <div class="ngPagerContainer" style="float: right; margin-top: 10px;">
+                    <div style="float:left; margin-right: 10px;" class="ngRowCountPicker">
+                        <span style="float: left; margin-top: 3px;" class="ngLabel">每页显示数：</span>
+                        <select style="float: left;height: 27px !important; width: 100px"
+                                ng-model="pagingOptions.pageSize">
+                            <option ng-repeat="size in pagingOptions.pageSizes">{{ size }}</option>
+                        </select>
+                    </div>
+                    <div style="float:left; margin-right: 10px; line-height:25px;" class="ngPagerControl">
+                        <button class="ngPagerButton" ng-click="goToPage(0)"
+                                ng-disabled="pagingOptions.currentPage==1"
+                                title="回到首页"><span class="fa fa-lg fa-step-backward"></span></button>
+                        <button class="ngPagerButton" ng-click="goToPage(-1)"
+                                ng-disabled="pagingOptions.currentPage==1"
+                                title="上一页"><span class="fa fa-lg fa-caret-left"></span></button>
+                        <input class="ngPagerCurrent" min="1" max="{{ currentMaxPages }}" type="number"
+                               style="width:50px; height: 24px; margin-top: 1px; padding: 0 4px;"
+                               ng-model="pagingOptions.currentPage">
+                        <span class="ngGridMaxPagesNumber" ng-show="maxP > 0"> / {{ maxP }}</span>
+                        <button class="ngPagerButton" ng-click="goToPage(1)"
+                                ng-disabled="pagingOptions.currentPage==maxP"
+                                title="下一页"><span class="fa fa-lg fa-caret-right"></span></button>
+                        <button class="ngPagerButton" ng-click="goToPage(9)"
+                                ng-disabled="pagingOptions.currentPage==maxP"
+                                title="前往尾页"><span class="fa fa-lg fa-step-forward"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+    </div>
+</div>
+
